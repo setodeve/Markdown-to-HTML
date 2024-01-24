@@ -29,11 +29,8 @@ https://mdhtml.setodeve.tech/
   <td>Javascript</td>
 </tr>
 <tr>
-  <td rowspan=5>バックエンド</td>
+  <td rowspan=4>バックエンド</td>
   <td>PHP</td>
-</tr>
-<tr>
-  <td>Python</td>
 </tr>
 <tr>
   <td>さくらインターネットVPS</td>
