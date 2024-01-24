@@ -4,14 +4,7 @@
 	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 	<title>Markdown-to-HTML</title>
 	<link href="index.css" rel="stylesheet" />
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css"> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-
-<!-- and it's easy to individually load additional languages -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
-
-<script>hljs.highlightAll();</script>
+  <link rel="icon" href="icon.png">
 </head>
 <body>
 <div id="container">
@@ -44,8 +37,8 @@
                 '### Title3',
                 "[Github setodeve](https://github.com/setodeve)\n",
                 '- section',
-                ' - section',
-                '     - section',
+                '    - section',
+                '         - section',
                 '',
                 '```javascript',
                 'function x() {',
@@ -97,12 +90,14 @@
       .then(response => response.text())
       .then(res => {
           if (type=="download"){
-            download_txt("test.html",res)
+            console.log(html)
+            download_txt("test.html",html.innerHTML)
           }else if(type=="preview"){
             html.innerHTML = res
-            document.querySelectorAll('pre code').forEach((el) => {
-              hljs.highlightElement(el);
-            });
+            console.log(res)
+            // document.querySelectorAll('pre code').forEach((el) => {
+            //   hljs.highlightElement(el);
+            // });
           }else{
             html.innerHTML = res
           }
