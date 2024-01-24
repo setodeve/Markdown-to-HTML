@@ -5,6 +5,9 @@
 	<title>Markdown-to-HTML</title>
 	<link href="index.css" rel="stylesheet" />
   <link rel="icon" href="icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
 </head>
 <body>
 <div id="container">
@@ -89,18 +92,22 @@
       })
       .then(response => response.text())
       .then(res => {
+        if ((type=="preview") || (type=="download")){
+          html.innerHTML = res
+          document.querySelectorAll('pre code').forEach((el) => {
+            hljs.highlightElement(el);
+          });
+
           if (type=="download"){
-            console.log(html)
+            let head = document.createElement('head');
+            let style = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">'
+            head.innerHTML += style
+            html.prepend(head)
             download_txt("test.html",html.innerHTML)
-          }else if(type=="preview"){
-            html.innerHTML = res
-            // console.log(res)
-            // document.querySelectorAll('pre code').forEach((el) => {
-            //   hljs.highlightElement(el);
-            // });
-          }else{
-            html.innerHTML = res
           }
+        }else{
+          html.innerHTML = res
+        }
       })
       .catch(error => {
           console.log(error);
