@@ -2,12 +2,15 @@
 Markdownテキストを入力し、それをHTMLに変換できるアプリケーションです。
 
 ## 特徴
-- Monacoコードエディタを使用したMarkdownの入力
+- Monacoエディタを使用したMarkdownの入力
 - リアルタイムでのMarkdownからHTMLへの変換
 - 変換されたHTMLのダウンロード
 
 ## URL
 https://mdhtml.setodeve.tech/
+
+## デモ
+![demo](https://github.com/setodeve/Markdown-to-HTML/assets/83833293/4186852c-1cf8-4447-a14e-1446532de235)
 
 ## 技術スタック
 <table>
@@ -48,13 +51,13 @@ https://mdhtml.setodeve.tech/
   <td>SSL/TLS証明書関連 : Certbot</td>
 </tr>
 <tr>
-  <td>パーサー : Markdown</td>
+  <td>ParseDown(https://github.com/erusev/parsedown)</td>
 </tr>
 <tr>
-  <td>ハイライト : Pygments</td>
+  <td>Highlight.js(https://highlightjs.readthedocs.io/en/latest/index.html)</td>
 </tr>
 <tr>
-  <td>エディタ : Monaco Editor</td>
+  <td>Monaco Editor(https://github.com/microsoft/monaco-editor)</td>
 </tr>
 </table>
 
