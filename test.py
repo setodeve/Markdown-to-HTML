@@ -1,6 +1,8 @@
 import sys
 import markdown
+import pygments
 import json
+
 def main(data):
     config = {
         "codehilite":{

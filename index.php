@@ -94,7 +94,7 @@
             download_txt("test.html",html.innerHTML)
           }else if(type=="preview"){
             html.innerHTML = res
-            console.log(res)
+            // console.log(res)
             // document.querySelectorAll('pre code').forEach((el) => {
             //   hljs.highlightElement(el);
             // });
