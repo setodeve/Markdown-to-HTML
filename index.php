@@ -92,7 +92,7 @@
       })
       .then(response => response.text())
       .then(res => {
-        if ((type=="preview") || (type=="download")){
+        if (type!="html"){
           html.innerHTML = res
           document.querySelectorAll('pre code').forEach((el) => {
             hljs.highlightElement(el);
@@ -104,6 +104,7 @@
             head.innerHTML += style
             html.prepend(head)
             download_txt("test.html",html.innerHTML)
+            type = 'preview'
           }
         }else{
           html.innerHTML = res
